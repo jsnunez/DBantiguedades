@@ -97,6 +97,8 @@ WHERE
 |-----------------------------|---------------------|--------------|---------------|
 | Sillón de la Edad Media     | 2024-08-10 10:30:00 |       950.00 | Enrique Ramos |
 | Anillo de Oro con Esmeralda | 2024-09-01 14:00:00 |      3200.00 | Enrique Ramos |
+
+
   4. Consulta para obtener el total de ventas realizadas en un periodo de tiempo:
 
  ```sql 
@@ -110,7 +112,7 @@ WHERE
 | total_ventas |
 |--------------|
 |     17300.00 |
-   -- Consulta para encontrar los clientes más activos (con más compras realizadas):
+   5. Consulta para encontrar los clientes más activos (con más compras realizadas):
  ```sql 
    SELECT 
     u.nombre,
@@ -138,7 +140,8 @@ ORDER BY
 | Camila Fernández  |                2 |
 | Adriana Silva     |                1 |
 | Carlos Morales    |                1 |
-5. Consulta para listar las antigüedades más populares por número de visitas o consultas:
+
+6. Consulta para listar las antigüedades más populares por número de visitas o consultas:
   ```sql 
 SELECT 
     a.nombre AS nombre_pieza,
@@ -189,7 +192,7 @@ ORDER BY
 | Tetera de Plata                |      45 |                  0 |
 
 
-6. Consulta para listar las antigüedades vendidas en un rango de fechas específico:
+7. Consulta para listar las antigüedades vendidas en un rango de fechas específico:
     
    ```sql 
    SELECT 
@@ -208,7 +211,7 @@ ORDER BY
    WHERE 
     t.fecha_transaccion BETWEEN '2024-08-01' AND '2024-09-30';
     ```
-   | nombre_pieza                | fecha_transaccion   | vendedor        | comprador         |
+| nombre_pieza                | fecha_transaccion   | vendedor        | comprador         |
 |-----------------------------|---------------------|-----------------|-------------------|
 | Mueble Luis XV              | 2024-08-15 10:00:00 | Ricardo Méndez  | Claudia Castro    |
 | Anillo de Oro con Esmeralda | 2024-09-01 14:00:00 | Adriana Silva   | Verónica Morales  |
@@ -228,7 +231,7 @@ ORDER BY
 | Mueble Art Deco             | 2024-09-08 11:30:00 | Manuel Ortega   | Carlos Morales    |
    
    7. Consulta para obtener un informe de inventario actual:
-     ```sql 
+ ```sql 
    SELECT 
     c.nombre AS categoria,
     COUNT(i.antiguedad_id) AS cantidad_articulos
@@ -250,6 +253,8 @@ ORDER BY
 | Joyería    |                  4 |
 | Pinturas   |                  2 |
 | Esculturas |                  4 |
+
+
 Diagrama Conceptual
 ![conceptual](https://github.com/user-attachments/assets/a7535e4b-29c8-43f7-a022-992b3b10f4f8)
 Diagrama Logico
