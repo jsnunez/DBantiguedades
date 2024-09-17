@@ -1,23 +1,48 @@
-# TallerAutomotrizMySql
-base de datos basada en un taller automotriz
+# Antiguedades
+base de datos basada en un venta de antiguedades
 
 ## CONSULTAS
    
-1. Obtener el historial de reparaciones de un vehículo específico
- 
+1.Consulta para listar todas las antigüedades disponibles para la venta:
+
  ```sql
-select r.id AS reparacion,placa,r.descripcion,fecha from reparacion AS r
-JOIN vehiculo AS v
-ON v.id=r.fkIdVehiculo
-where fkIdVehiculo = 12;
+SELECT 
+    a.nombre AS nombre_pieza,
+    c.nombre AS categoria,
+    a.precio,
+    a.estado_conservacion
+FROM 
+    Antiguedades a
+JOIN 
+    Categorias c ON a.categoria_id = c.categoria_id
+JOIN 
+    Inventario i ON a.antiguedad_id = i.antiguedad_id
+WHERE 
+    i.cantidad_disponible > 0;
+
  ```
-| reparacion | placa  | descripcion                                                | fecha      |
-|------------|--------|------------------------------------------------------------|------------|
-|          6 | HIJ456 | Cambio de batería debido a problemas de arranque           | 2024-04-25 |
-|          7 | HIJ456 | Revisión y cambio de aceite para mantenimiento preventivo  | 2024-04-26 |
-|          8 | HIJ456 | Cambio de bujías para mejorar el rendimiento del motor     | 2024-04-27 |
-|          9 | HIJ456 | Revisión del sistema de escape por ruidos anormales        | 2024-04-28 |
-|         10 | HIJ456 | Lavado exterior e interior del vehículo                    | 2024-04-29 |
+| nombre_pieza                | categoria  | precio  | estado_conservacion |
+|-----------------------------|------------|---------|---------------------|
+| Mueble Luis XV              | Muebles    | 1200.00 | Bueno               |
+| Reloj de Pared Francés      | Relojes    | 2100.00 | Muy Bueno           |
+| Anillo de Oro con Esmeralda | Joyería    | 4000.00 | Excelente           |
+| Cuadro Impresionista        | Pinturas   | 2200.00 | Bueno               |
+| Escultura de Mármol         | Esculturas | 3500.00 | Excelente           |
+| Sillón de la Edad Media     | Muebles    |  800.00 | Muy Bueno           |
+| Collar de Ámbar             | Joyería    | 1300.00 | Bueno               |
+| Candelabro de Bronce        | Muebles    | 1800.00 | Muy Bueno           |
+| Escultura de Hierro Forjado | Esculturas | 3000.00 | Excelente           |
+| Mueble Art Deco             | Muebles    | 2200.00 | Bueno               |
+| Mueble Luis XV              | Muebles    | 1200.00 | Bueno               |
+| Reloj de Pared Francés      | Relojes    | 2100.00 | Muy Bueno           |
+| Anillo de Oro con Esmeralda | Joyería    | 4000.00 | Excelente           |
+| Cuadro Impresionista        | Pinturas   | 2200.00 | Bueno               |
+| Escultura de Mármol         | Esculturas | 3500.00 | Excelente           |
+| Sillón de la Edad Media     | Muebles    |  800.00 | Muy Bueno           |
+| Collar de Ámbar             | Joyería    | 1300.00 | Bueno               |
+| Candelabro de Bronce        | Muebles    | 1800.00 | Muy Bueno           |
+| Escultura de Hierro Forjado | Esculturas | 3000.00 | Excelente           |
+| Mueble Art Deco             | Muebles    | 2200.00 | Bueno               |
 
 
 Diagrama Conceptual
